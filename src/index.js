@@ -34,21 +34,21 @@ class App extends React.Component {
   }
 
   isEdited(id) {
-    let tmpArr = this.state.toDoArr.slice();
+    let tmpArr = this.state.toDoArr;
     tmpArr[id].isEdit = !tmpArr[id].isEdit;
     this.setState({ toDoArr: tmpArr });
     console.log(this.state);
   }
 
   isComplited(id) {
-    let tmpArr = this.state.toDoArr.slice();
+    let tmpArr = this.state.toDoArr;
     tmpArr[id].isComplite = !tmpArr[id].isComplite;
     this.setState({ toDoArr: tmpArr });
     console.log(this.state);
   }
 
   remove(id) {
-    let tmpArr = this.state.toDoArr.slice();
+    let tmpArr = this.state.toDoArr;
     tmpArr.splice(id, 1);
     this.setState({ toDoArr: tmpArr });
     localStorage.setItem('ToDo', JSON.stringify(this.state.toDoArr));
@@ -56,7 +56,7 @@ class App extends React.Component {
   }
 
   addToDo(value) {
-    let tmpArr = this.state.toDoArr.slice();
+    let tmpArr = this.state.toDoArr;
     tmpArr.push(new Task(false, false, value));
     this.setState({ toDoArr: tmpArr });
     localStorage.setItem('ToDo', JSON.stringify(this.state.toDoArr));
@@ -64,7 +64,7 @@ class App extends React.Component {
   }
 
   updateToDo(id, value) {
-    let tmpArr = this.state.toDoArr.slice();
+    let tmpArr = this.state.toDoArr;
     tmpArr[id].value = value;
     tmpArr[id].isEdit = !tmpArr[id].isEdit;
     this.setState({ toDoArr: tmpArr });
