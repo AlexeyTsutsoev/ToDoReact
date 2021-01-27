@@ -88,14 +88,14 @@ export default function ToDoList() {
             {todos.length < 1 ?
                 <h2>Список дел пуст</h2> :
                 filterTodo().map((todo) => {
-                    return todo.isEdit ? (<InputLine todo={todo}
+                    return (todo.isEdit) ? (<InputLine todo={todo}
                         key={todo.id}
                         onUpdate={updateTodo} />) :
                         (<ToDoItem todo={todo}
                             key={todo.id}
                             onRemove={(id) => removeTodo(id)}
                             onComplete={(id) => isCompleted(id)}
-                            onEdit={isEdited}
+                            onEdit={(id) => isEdited(id)}
                             addTodo={(todo) => addTodo(todo)}
                         />);
                 })
