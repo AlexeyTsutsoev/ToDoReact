@@ -16,7 +16,7 @@ export default function InputLine({ id, onSubmit, text }) {
         maxLength="30"
         onChange={(event) => onChangeHandler(event)}
       />
-      <button type="submit">Добавить</button>
+      <button type="submit">Изменить</button>
     </form>
   );
 }

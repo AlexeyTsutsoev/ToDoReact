@@ -14,23 +14,17 @@ export default function ToDoItem({ todo, onRemove, onComplete, onUpdate }) {
     setEdit(!isEdit);
   };
 
-  const renderLi = () => {
+  const renderItem = () => {
     return (
-      <div>
-        <span>
+      <div className="item" style={{textDecoration : todo.isComplete ? "line-through " : "none"}}> 
           <input
             type="checkbox"
             checked={todo.isComplete}
             onChange={() => onComplete(todo.id)}
           />
-        </span>
-        {todo.value}
-        <span>
-          <button onClick={() => onEdit()}>редактировать</button>
-        </span>
-        <span>
-          <button onClick={() => onRemove(todo.id)}>удалить</button>
-        </span>
+          {todo.value}
+            <button onClick={() => onEdit()}>редактировать</button>
+            <button onClick={() => onRemove(todo.id)}>удалить</button>
       </div>
     );
   };
@@ -43,6 +37,6 @@ export default function ToDoItem({ todo, onRemove, onComplete, onUpdate }) {
       onBlur={() => onEdit}
     />
   ) : (
-    renderLi()
+    renderItem()
   );
 }

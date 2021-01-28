@@ -36,7 +36,7 @@ export default function ToDoList() {
     tmpArr.forEach((todo) => {
       if (todo.id === id) todo.isComplete = !todo.isComplete;
     });
-    setTodos(tmpArr);
+    setTodos([...tmpArr]);
   };
 
   const updateTodo = (id, value) => {
@@ -72,7 +72,7 @@ export default function ToDoList() {
   };
 
   return (
-    <div className="ToDoList">
+    <div className="todo-list">
       <ToDoForm addTodo={(todo) => addTodo(todo)} />
       {!todos.length ? (
         <h2>Список дел пуст</h2>

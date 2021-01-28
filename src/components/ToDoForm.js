@@ -20,8 +20,8 @@ export default function ToDoForm({ addTodo }) {
   };
 
   return (
-    <form onSubmit={(event) => onClickHandler(event)}>
-      <input
+    <form className="todo-form" onSubmit={(event) => onClickHandler(event)}>
+      <input className="input"
         value={value}
         type="text"
         placeholder="Введите задачу"

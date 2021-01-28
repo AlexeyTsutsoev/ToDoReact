@@ -2,6 +2,7 @@ import React from "react";
 
 export default function Bottom({ onControl, onSave, onClear }) {
   return (
+    <div className="footer">
     <div>
       <span>
         <input
@@ -19,8 +20,11 @@ export default function Bottom({ onControl, onSave, onClear }) {
         />
         Не заверешнные
       </span>
+      </div>
+      <div>
       <button onClick={() => onSave()}>Сохранить дела</button>
       <button onClick={() => onClear()}>Очистить хранилище</button>
+      </div>
     </div>
   );
 }
