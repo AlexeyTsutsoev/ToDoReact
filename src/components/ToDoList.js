@@ -72,7 +72,7 @@ export default function ToDoList() {
   };
 
   return (
-    <div>
+    <div className="ToDoList">
       <ToDoForm addTodo={(todo) => addTodo(todo)} />
       {!todos.length ? (
         <h2>Список дел пуст</h2>
@@ -95,7 +95,6 @@ export default function ToDoList() {
         onSave={() => saveTodo()}
         onControl={(event) => filterControl(event)}
       />
-      <button onClick={() => console.log(todos)}>log todos</button>
     </div>
   );
 }
