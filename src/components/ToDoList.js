@@ -68,7 +68,7 @@ export default function ToDoList() {
 
   const clear = () => {
     setTodos([]);
-    localStorage.clear();
+    localStorage.removeItem("ToDo");
   };
 
   return (
