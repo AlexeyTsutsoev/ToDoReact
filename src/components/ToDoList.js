@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import ToDoItem from './ToDoItem';
 import ToDoForm from './ToDoForm';
-import InputLine from './InputLine';
-import Bottom from './Bottom';
+import Bottom from './Footer';
 
 
 export default function ToDoList() {
@@ -39,25 +38,14 @@ export default function ToDoList() {
         setTodos(tmpArr);
     }
 
-    const isEdited = (id) => {
-        let tmpArr = todos;
-        tmpArr.forEach(todo => {
-            if (todo.id === id) todo.isEdit = !todo.isEdit
-        })
-        setTodos(tmpArr);
-        console.log('state изменен');
-    }
-
     const updateTodo = (id, value) => {
         let tmpArr = todos;
         tmpArr.forEach(todo => {
             if (todo.id === id) {
-                todo.value = value;
-                todo.isEdit = !todo.isEdit
+                todo.value = value
             }
         });
         setTodos(tmpArr);
-        console.log('state изменен');
     }
 
     const filterTodo = () => {
@@ -88,19 +76,16 @@ export default function ToDoList() {
             {todos.length < 1 ?
                 <h2>Список дел пуст</h2> :
                 filterTodo().map((todo) => {
-                    return (todo.isEdit) ? (<InputLine todo={todo}
+                    return (<ToDoItem todo={todo}
                         key={todo.id}
-                        onUpdate={updateTodo} />) :
-                        (<ToDoItem todo={todo}
-                            key={todo.id}
-                            onRemove={(id) => removeTodo(id)}
-                            onComplete={(id) => isCompleted(id)}
-                            onEdit={(id) => isEdited(id)}
-                            addTodo={(todo) => addTodo(todo)}
-                        />);
+                        onRemove={(id) => removeTodo(id)}
+                        onComplete={(id) => isCompleted(id)}
+                        addTodo={(todo) => addTodo(todo)}
+                        onUpdate={updateTodo}
+                    />);
                 })
             }
-            <Bottom onClear={() => clear()} onSave={() => saveTodo()} onControl ={(event) => filterControl(event)} />
+            <Bottom onClear={() => clear()} onSave={() => saveTodo()} onControl={(event) => filterControl(event)} />
             <button onClick={() => console.log(todos)}>log todos</button>
         </div>
     )

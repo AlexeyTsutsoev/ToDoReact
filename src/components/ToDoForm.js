@@ -8,7 +8,7 @@ export default function ToDoForm(props) {
         event.preventDefault();
         if (value) {
             props.addTodo(
-                { id: new Date().getSeconds() + new Date().getMilliseconds(), isComplete: false, isEdit: false, value: value }
+                { id: new Date().getSeconds() + new Date().getMilliseconds(), isComplete: false, value: value }
             );
             setValue('');
         }
