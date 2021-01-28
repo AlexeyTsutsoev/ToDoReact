@@ -1,14 +1,7 @@
 import React, { useState } from "react";
 import InputLine from "./InputLine.js";
 
-export default function ToDoItem({
-  todo,
-  key,
-  onRemove,
-  onComplete,
-  addTodo,
-  onUpdate,
-}) {
+export default function ToDoItem({ todo, onRemove, onComplete, onUpdate }) {
   const [isEdit, setEdit] = useState(false);
 
   const onSubmitHandler = (event, value, id) => {
